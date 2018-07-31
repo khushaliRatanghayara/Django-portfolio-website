@@ -28,7 +28,7 @@
               <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="#">LinkedIn</a>
                 <a class="nav-item nav-link" href="#">Resume</a>
-                <a class="nav-item nav-link" href="blog/">Blog</a>
+                <a class="nav-item nav-link active" href="">Blog</a>
               </div>
             </div>
           </nav>
@@ -38,20 +38,12 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Hello World, I'm Tarang!</h1>
+          <h1 class="jumbotron-heading">Welcome to my Blog!</h1>
           <p class="lead text-muted">
-              
-              <ul class="list-group list-group-flush">
-                  <li class="list-group-item">I'm Tarang ranpara, currently pursuing Computer science engineeing in the city of Rajkot.</li>
-                  <li class="list-group-item">Basically, I'm <strong>Pythonista</strong>. I'm passionate about <b>Machine learning</b> ( Btw, who doesn't? :) ) and I enjoy to code in <b>Django</b> as well.
-                    I've done many personal projects too(mostly in <b>Python,C++</b>).</li>
-                  <li class="list-group-item">Apart from Academic or Tech field, I enjoy reading books, newspapers and I'm also a big fan of  Q-A sites like <strong>Quora</strong>, <strong>Medium</strong> and <strong> Reddit </strong> etc.</li>
-                  <li class="list-group-item">I'm fan of <B>Ed sheeran</B> for his songs & TV series like <i><b>"How i met your mother", "friends", "silicon valley",  "13 reasons why", "pitchers"</i></b> etc. make my day complete.</li>
-              </ul>
-
-          </p>
-          <p>
-            <a href="mailto:tarangranpara1998@gmail.com" class="btn btn-primary my-2">Mail me!</a>
+              <i>
+                here is where i write about my life & stuff!
+              <br>Stay tuned!
+              </i>
           </p>
         </div>
       </section>
@@ -61,14 +53,20 @@
 
           <div class="row">
             
-            {% for job in jobs.all %}
+            {% for blog in blogs.all %}
               
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src= "{{ job.image.url }}" alt="Card image cap">
+                <img class="card-img-top" src= "{{ blog.image.url }}" alt="{{ blog.title}}">
                 <div class="card-body">
                   <p class="card-text">
-                    {{ job.summary }}
+                    <a href=""><strong>{{ blog.title }}</strong></a>
+                  </p>
+                  <p class="card-text">
+                    <i>{{blog.pub_date}}</i>
+                  </p>
+                  <p class="card-text">
+                    <i>{{blog.get_summary}}</i>
                   </p>
   
                 </div>
