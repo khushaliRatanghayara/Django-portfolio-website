@@ -2,11 +2,12 @@
 <!doctype html>
 <html lang="en">
   <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <meta name="author" content="tarang">
+    <link rel="icon" href="{% static 'icon.png' %}">
 
     <title>Tarang's Portfolio</title>
 
@@ -20,14 +21,14 @@
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#" style="font-family:BlackChancery;"><h3>It's me,Tarang!</h3></a>
+            <a class="navbar-brand" href="{% url 'home' %}" style="font-family:BlackChancery;"><h3>It's me,Tarang!</h3></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="#">LinkedIn</a>
-                <a class="nav-item nav-link" href="#">Resume</a>
+                <a class="nav-item nav-link" href="https://www.linkedin.com/in/tarang-ranpara-319467130/">LinkedIn</a>
+                <a class="nav-item nav-link" href="{% static 'tjr.pdf' %}">Resume</a>
                 <a class="nav-item nav-link active" href="">Blog</a>
               </div>
             </div>
@@ -41,7 +42,7 @@
           <h1 class="jumbotron-heading">Welcome to my Blog!</h1>
           <p class="lead text-muted">
               <i>
-                here is where i write about my life & stuff!
+                This is where I write about my life & stuff!
               <br>Stay tuned!
               </i>
           </p>
@@ -60,7 +61,7 @@
                 <img class="card-img-top" src= "{{ blog.image.url }}" alt="{{ blog.title}}">
                 <div class="card-body">
                   <p class="card-text">
-                    <a href=""><strong>{{ blog.title }}</strong></a>
+                    <a href="{% url 'detail' blog.id %}"><strong>{{ blog.title }}</strong></a>
                   </p>
                   <p class="card-text">
                     <i>{{blog.pub_date}}</i>
